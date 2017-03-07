@@ -47,14 +47,14 @@ def simulate(startdate, enddate, symbols, allocation):
     portfolio_average_daily_return = np.mean(portfolio_daily_returns)
     std_dev_portfolio = np.std(portfolio_daily_returns)
     sharpe_portfolio = np.sqrt(len(portfolio_value))*portfolio_average_daily_return / std_dev_portfolio
-    Start Date: ", startdate
-    End Date: ", enddate
-    Symbols: ", symbols
-    Optimal Allocations: ", allocation
-    Sharpe Ratio: ", sharpe_portfolio
-    Volatility (stdev of daily returns): ", std_dev_portfolio
-    Average Daily Return: ", portfolio_average_daily_return
-    Cumulative Return: ", portfolio_daily_value[-1]
+    Start Date: , startdate
+    "End Date:" , enddate
+    "Symbols:", symbols
+    "Optimal Allocations: ", allocation
+    "Sharpe Ratio: ", sharpe_portfolio
+    "Volatility (stdev of daily returns): ", std_dev_portfolio
+    "Average Daily Return: ", portfolio_average_daily_return
+    "Cumulative Return: ", portfolio_daily_value[-1]
     return sharpe_portfolio
 
 #create all possible portfolio allocations
