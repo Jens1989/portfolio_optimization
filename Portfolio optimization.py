@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb 06 09:05:10 2017
-
-@author: jens_
-"""
+#calculate the optimal asset allocation determined by the highest sharpe ratio
 
 import QSTK.qstkutil.qsdateutil as du
 import QSTK.qstkutil.tsutil as tsu
@@ -47,15 +42,15 @@ def simulate(startdate, enddate, symbols, allocation):
     portfolio_average_daily_return = np.mean(portfolio_daily_returns)
     std_dev_portfolio = np.std(portfolio_daily_returns)
     sharpe_portfolio = np.sqrt(len(portfolio_value))*portfolio_average_daily_return / std_dev_portfolio
-    Start Date: , startdate
-    "End Date:" , enddate
-    "Symbols:", symbols
-    "Optimal Allocations: ", allocation
-    "Sharpe Ratio: ", sharpe_portfolio
-    "Volatility (stdev of daily returns): ", std_dev_portfolio
-    "Average Daily Return: ", portfolio_average_daily_return
-    "Cumulative Return: ", portfolio_daily_value[-1]
-    return sharpe_portfolio
+    return ("Start Date:", startdate,
+            "End Date:", enddate,
+            "Symbols:", symbols,
+            "Optimal Allocations:", allocation,
+            "Sharpe Ratio:", sharpe_portfolio,
+            "Volatility (stdev of daily returns):", std_dev_portfolio,
+            "Average Daily Return:", portfolio_average_daily_return,
+            "Cumulative Return:", portfolio_daily_value[-1])
+    
 
 #create all possible portfolio allocations
 
@@ -70,10 +65,5 @@ sharpes = []
 for i in combos: 
     sharpes.append(simulate(dt_start, dt_end, Symbols, i))
  
-#locate the allocation with the highest sharpe ratio    
+#locate the allocation with the highest sharpe ratio
 print combos[sharpes.index(max(sharpes))]
-       
-
-
-
-
